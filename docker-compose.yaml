@@ -1,0 +1,74 @@
+# Versi docker compose
+version: '3.7'
+# Service yang didefinisikan
+services:
+  # Nama service pertama yaitu db yang merupakan container dari mongodb
+  db:
+    # Memberikan nama container 
+    container_name: item-db
+    # Restart container jika terhenti yaitu selalu
+    restart: always
+    # Image yang digunakan
+    image: mongo:3
+    # Attach container ke network bernama item-network
+    networks:
+      - item-network
+    # Menyimpan data pada path /data/db ke docker volume dengan nama app-db
+    volumes:
+      - app-db:/data/db
+    # Melakukan healtcheck untuk memastikan container dan database didalamnya berjalan
+    healthcheck:
+      # Command untuk melakukan healtcheck
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/accumulator --quiet
+      # Interval untuk menjalankan command test
+      interval: 1m
+      # Timeout untuk menunggu respon dari command test
+      timeout: 3s
+      # Jumlah command test diulang jika command tersebut gagal
+      retries: 5
+      # Jeda sebelum command test dijalankan
+      start_period: 10s
+  # Nama service kedua yaitu app yang mana merupakan container yang berisi aplikasi dan node
+  app:
+    # Nama container
+    container_name: item-app
+    # Nama image yang digunakan
+    image: node:14-alpine
+    # Restart container jika terhenti yaitu selalu
+    restart: always
+    # Ketergantungan container ini dengan container lain sebelum container ini didefinisikan/dibuat
+    # Disini servis app bergantung dengan servis db, yang mana servis app hanya akan didefinisikan jika servis db sudah berjalan (service healty)
+    depends_on:
+      # Nama servis yang digantungkan sebagai parameter memulai servis
+      db:
+        # Kondisi servis yang diharapkan dari servis yang digantungkan
+        condition: service_healthy
+    # Membuat direktori baru bernama app didalam container yang akan dibuat
+    working_dir: /app
+    # Menggunakan bind mount dari current directory tempat file ini ke direktori app pada container
+    volumes:
+      - .:/app
+    # Attach container ke network bernama item-network agar bisa terhubung dengan servis db
+    networks:
+      - item-network
+    # Mendownload dependencies yang dibutuhkan lalu melakukan build app dan menjalankannya
+    command: sh -c "npm install --production --unsafe-perm && npm run build && npm run start"
+    # Menetapkan environtment untuk NODE_ENV dan DB_HOST
+    environment:
+      NODE_ENV: production
+      DB_HOST: item-db
+    # Expose port 8080 agar aplikasi dapat diakses melalui port 80
+    ports:
+      - 80:8080
+# Mendifinisikan network
+networks:
+  # Nama network
+  item-network:
+    # Menetapkan nama network pada docker
+    name: app-network
+# Mendefinisikan Volume
+volumes:
+  # Nama Volume
+  app-db:
+    # Menetapkan nama volume pada docker
+    name: app-db
