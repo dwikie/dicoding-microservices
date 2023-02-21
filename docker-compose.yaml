@@ -16,12 +16,12 @@ services:
     # Menyimpan data pada path /data/db ke docker volume dengan nama app-db
     volumes:
       - app-db:/data/db
-    # Melakukan healtcheck untuk memastikan container dan database didalamnya berjalan
+    # Melakukan healtcheck untuk memastikan container dan database di dalamnya berjalan
     healthcheck:
       # Command untuk melakukan healtcheck
       test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/accumulator --quiet
       # Interval untuk menjalankan command test
-      interval: 1m
+      interval: 10s
       # Timeout untuk menunggu respon dari command test
       timeout: 3s
       # Jumlah command test diulang jika command tersebut gagal

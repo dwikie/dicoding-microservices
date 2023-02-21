@@ -1,0 +1,125 @@
+item-db  | 2023-02-21T21:02:32.912+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=509219c6f309
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] db version v3.6.23
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] git version: d352e6a4764659e0d0350ce77279de3c1f243e5c
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] modules: none
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] build environment:
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten]     distarch: x86_64
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+item-db  | 2023-02-21T21:02:32.913+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+item-db  | 2023-02-21T21:02:32.914+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+item-db  | 2023-02-21T21:02:32.914+0000 I STORAGE  [initandlisten] 
+item-db  | 2023-02-21T21:02:32.914+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+item-db  | 2023-02-21T21:02:32.914+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+item-db  | 2023-02-21T21:02:32.915+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=2288M,cache_overflow=(file_max=0M),session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+item-db  | 2023-02-21T21:02:34.098+0000 I STORAGE  [initandlisten] WiredTiger message [1677013354:98191][1:0x7f31232f0a40], txn-recover: Main recovery loop: starting at 17/6144
+item-db  | 2023-02-21T21:02:34.238+0000 I STORAGE  [initandlisten] WiredTiger message [1677013354:238599][1:0x7f31232f0a40], txn-recover: Recovering log 17 through 18
+item-db  | 2023-02-21T21:02:34.318+0000 I STORAGE  [initandlisten] WiredTiger message [1677013354:318909][1:0x7f31232f0a40], txn-recover: Recovering log 18 through 18
+item-db  | 2023-02-21T21:02:34.394+0000 I STORAGE  [initandlisten] WiredTiger message [1677013354:394129][1:0x7f31232f0a40], txn-recover: Set global recovery timestamp: 0
+item-db  | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] 
+item-db  | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+item-db  | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+item-db  | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] 
+item-app  | 
+item-app  | > docker-software-delivery@1.0.0 preinstall /app
+item-app  | > npx npm-force-resolutions
+item-app  | 
+item-app  | npx: installed 6 in 5.114s
+item-app  | npm WARN read-shrinkwrap This version of npm is compatible with lockfileVersion@1, but package-lock.json was generated for lockfileVersion@2. I'll try to do my best with it!
+item-app  | added 471 packages from 332 contributors and audited 662 packages in 36.465s
+item-app  | 
+item-app  | 7 packages are looking for funding
+item-app  |   run `npm fund` for details
+item-app  | 
+item-app  | found 96 vulnerabilities (20 low, 25 moderate, 41 high, 10 critical)
+item-app  |   run `npm audit fix` to fix them, or `npm audit` for details
+item-app  | 
+item-app  | > docker-software-delivery@1.0.0 build /app
+item-app  | > node ./node_modules/gulp/bin/gulp.js
+item-app  | 
+item-app  | [21:03:17] Using gulpfile /app/gulpfile.js
+item-app  | [21:03:17] Starting 'scripts'...
+item-app  | [21:03:24] Finished 'scripts' after 6.81 s
+item-app  | [21:03:24] Starting 'default'...
+item-app  | [21:03:24] Finished 'default' after 107 μs
+item-app  | 
+item-app  | > docker-software-delivery@1.0.0 start /app
+item-app  | > node ./bin/www
+item-app  | 
+item-app  | NODE_ENV: production
+item-app  | Connected to database
+item-app  | [0mGET / [32m200 [0m341.240 ms - 785[0m
+item-app  | [0mGET /stylesheets/style.css [32m200 [0m57.105 ms - 519[0m
+item-app  | [0mGET /javascripts/dist/dist.min.js [32m200 [0m6.281 ms - 186999[0m
+item-app  | [0mGET /favicon.ico [33m404 [0m21.805 ms - 270[0m
+item-app  | [0mGET /api [32m200 [0m13.316 ms - 106[0m
+item-app  | [0mPOST /api [32m201 [0m25.842 ms - 50[0m
+item-db   | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] 
+item-db   | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+item-db   | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+item-db   | 2023-02-21T21:02:34.437+0000 I CONTROL  [initandlisten] 
+item-db   | 2023-02-21T21:02:34.444+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+item-db   | 2023-02-21T21:02:34.445+0000 I NETWORK  [initandlisten] listening via socket bound to 0.0.0.0
+item-db   | 2023-02-21T21:02:34.445+0000 I NETWORK  [initandlisten] listening via socket bound to /tmp/mongodb-27017.sock
+item-db   | 2023-02-21T21:02:34.445+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+item-db   | 2023-02-21T21:02:38.127+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:45572 #1 (1 connection now open)
+item-db   | 2023-02-21T21:02:38.129+0000 I NETWORK  [conn1] received client metadata from 127.0.0.1:45572 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:02:38.148+0000 I NETWORK  [conn1] end connection 127.0.0.1:45572 (0 connections now open)
+item-db   | 2023-02-21T21:02:43.352+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:60842 #2 (1 connection now open)
+item-db   | 2023-02-21T21:02:43.353+0000 I NETWORK  [conn2] received client metadata from 127.0.0.1:60842 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:02:43.376+0000 I NETWORK  [conn2] end connection 127.0.0.1:60842 (0 connections now open)
+item-db   | 2023-02-21T21:02:48.634+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:60032 #3 (1 connection now open)
+item-db   | 2023-02-21T21:02:48.635+0000 I NETWORK  [conn3] received client metadata from 127.0.0.1:60032 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:02:48.650+0000 I NETWORK  [conn3] end connection 127.0.0.1:60032 (0 connections now open)
+item-db   | 2023-02-21T21:02:53.854+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:60034 #4 (1 connection now open)
+item-db   | 2023-02-21T21:02:53.855+0000 I NETWORK  [conn4] received client metadata from 127.0.0.1:60034 conn4: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:02:53.869+0000 I NETWORK  [conn4] end connection 127.0.0.1:60034 (0 connections now open)
+item-db   | 2023-02-21T21:02:59.143+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:47600 #5 (1 connection now open)
+item-db   | 2023-02-21T21:02:59.145+0000 I NETWORK  [conn5] received client metadata from 127.0.0.1:47600 conn5: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:02:59.158+0000 I NETWORK  [conn5] end connection 127.0.0.1:47600 (0 connections now open)
+item-db   | 2023-02-21T21:03:04.449+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:47612 #6 (1 connection now open)
+item-db   | 2023-02-21T21:03:04.450+0000 I NETWORK  [conn6] received client metadata from 127.0.0.1:47612 conn6: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:04.460+0000 I NETWORK  [conn6] end connection 127.0.0.1:47612 (0 connections now open)
+item-db   | 2023-02-21T21:03:09.742+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:50144 #7 (1 connection now open)
+item-db   | 2023-02-21T21:03:09.744+0000 I NETWORK  [conn7] received client metadata from 127.0.0.1:50144 conn7: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:09.755+0000 I NETWORK  [conn7] end connection 127.0.0.1:50144 (0 connections now open)
+item-db   | 2023-02-21T21:03:15.041+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:50146 #8 (1 connection now open)
+item-db   | 2023-02-21T21:03:15.046+0000 I NETWORK  [conn8] received client metadata from 127.0.0.1:50146 conn8: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:15.065+0000 I NETWORK  [conn8] end connection 127.0.0.1:50146 (0 connections now open)
+item-db   | 2023-02-21T21:03:20.323+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:44592 #9 (1 connection now open)
+item-db   | 2023-02-21T21:03:20.325+0000 I NETWORK  [conn9] received client metadata from 127.0.0.1:44592 conn9: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:20.344+0000 I NETWORK  [conn9] end connection 127.0.0.1:44592 (0 connections now open)
+item-db   | 2023-02-21T21:03:25.271+0000 I NETWORK  [listener] connection accepted from 172.28.0.3:51866 #10 (1 connection now open)
+item-db   | 2023-02-21T21:03:25.283+0000 I NETWORK  [conn10] received client metadata from 172.28.0.3:51866 conn10: { driver: { name: "nodejs", version: "2.2.36" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "5.15.79.1-microsoft-standard-WSL2" }, platform: "Node.js v14.21.3, LE, mongodb-core: 2.1.20" }
+item-db   | 2023-02-21T21:03:25.572+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:44594 #11 (2 connections now open)
+item-db   | 2023-02-21T21:03:25.574+0000 I NETWORK  [conn11] received client metadata from 127.0.0.1:44594 conn11: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:25.583+0000 I NETWORK  [conn11] end connection 127.0.0.1:44594 (1 connection now open)
+item-db   | 2023-02-21T21:03:30.746+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:53580 #12 (2 connections now open)
+item-db   | 2023-02-21T21:03:30.747+0000 I NETWORK  [conn12] received client metadata from 127.0.0.1:53580 conn12: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:30.760+0000 I NETWORK  [conn12] end connection 127.0.0.1:53580 (1 connection now open)
+item-db   | 2023-02-21T21:03:35.980+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:53582 #13 (2 connections now open)
+item-db   | 2023-02-21T21:03:35.981+0000 I NETWORK  [conn13] received client metadata from 127.0.0.1:53582 conn13: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:35.990+0000 I NETWORK  [conn13] end connection 127.0.0.1:53582 (1 connection now open)
+item-db   | 2023-02-21T21:03:41.193+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:35728 #14 (2 connections now open)
+item-db   | 2023-02-21T21:03:41.194+0000 I NETWORK  [conn14] received client metadata from 127.0.0.1:35728 conn14: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:41.204+0000 I NETWORK  [conn14] end connection 127.0.0.1:35728 (1 connection now open)
+item-db   | 2023-02-21T21:03:46.402+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:35730 #15 (2 connections now open)
+item-db   | 2023-02-21T21:03:46.404+0000 I NETWORK  [conn15] received client metadata from 127.0.0.1:35730 conn15: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:46.413+0000 I NETWORK  [conn15] end connection 127.0.0.1:35730 (1 connection now open)
+item-db   | 2023-02-21T21:03:51.631+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:58396 #16 (2 connections now open)
+item-db   | 2023-02-21T21:03:51.633+0000 I NETWORK  [conn16] received client metadata from 127.0.0.1:58396 conn16: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:51.643+0000 I NETWORK  [conn16] end connection 127.0.0.1:58396 (1 connection now open)
+item-db   | 2023-02-21T21:03:56.560+0000 I NETWORK  [conn10] end connection 172.28.0.3:51866 (0 connections now open)
+item-db   | 2023-02-21T21:03:56.835+0000 I NETWORK  [listener] connection accepted from 127.0.0.1:58412 #17 (1 connection now open)
+item-db   | 2023-02-21T21:03:56.836+0000 I NETWORK  [conn17] received client metadata from 127.0.0.1:58412 conn17: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.6.23" }, os: { type: "Linux", name: "Ubuntu", architecture: "x86_64", version: "16.04" } }
+item-db   | 2023-02-21T21:03:56.846+0000 I NETWORK  [conn17] end connection 127.0.0.1:58412 (0 connections now open)
+item-db   | 2023-02-21T21:03:57.035+0000 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+item-db   | 2023-02-21T21:03:57.035+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+item-db   | 2023-02-21T21:03:57.035+0000 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+item-db   | 2023-02-21T21:03:57.036+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+item-db   | 2023-02-21T21:03:57.038+0000 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+item-db   | 2023-02-21T21:03:57.120+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+item-db   | 2023-02-21T21:03:57.120+0000 I CONTROL  [signalProcessingThread] now exiting
+item-db   | 2023-02-21T21:03:57.120+0000 I CONTROL  [signalProcessingThread] shutting down with code:0
