@@ -1,0 +1,17 @@
+name: publish
+on: [push]
+jobs:
+publish-item-app-image:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: Login to Github Container Regsitry
+uses: docker/login-action@v1
+with:
+registry: ghcr.io
+username: dwikie
+password: ${{ secrets.GITHUB_TOKEN }}
+- name: Build item-app image and push to ghcr
+run:
+  docker run build --tag ghcr.io/dwikie/item-app:v1
+  docker push ghcr.io/dwikie/item-app:v1
