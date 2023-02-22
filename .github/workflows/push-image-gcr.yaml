@@ -27,5 +27,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: v1
-          labels: item-app
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
