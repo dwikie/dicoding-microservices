@@ -33,7 +33,7 @@ services:
     # Nama container
     container_name: item-app
     # Nama image yang digunakan
-    image: node:14
+    image: ghcr.io/dwikie/dicoding-microservices:proyek-pertama
     # Restart container jika terhenti yaitu selalu
     restart: always
     # Ketergantungan container ini dengan container lain sebelum container ini didefinisikan/dibuat
@@ -43,20 +43,9 @@ services:
       db:
         # Kondisi servis yang diharapkan dari servis yang digantungkan
         condition: service_healthy
-    # Membuat direktori baru bernama app didalam container yang akan dibuat
-    working_dir: /app
-    # Menggunakan bind mount dari current directory tempat file ini ke direktori app pada container
-    volumes:
-      - .:/app
     # Attach container ke network bernama item-network agar bisa terhubung dengan servis db
     networks:
       - item-network
-    # Mendownload dependencies yang dibutuhkan lalu melakukan build app dan menjalankannya
-    command: sh -c "npm install --production --unsafe-perm && npm run build && npm run start"
-    # Menetapkan environtment untuk NODE_ENV dan DB_HOST
-    environment:
-      NODE_ENV: production
-      DB_HOST: item-db
     # Expose port 8080 agar aplikasi dapat diakses melalui port 80
     ports:
       - 80:8080
