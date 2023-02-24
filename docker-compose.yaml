@@ -33,7 +33,7 @@ services:
     # Nama container
     container_name: item-app
     # Nama image yang digunakan
-    image: node:14-alpine
+    image: node:14
     # Restart container jika terhenti yaitu selalu
     restart: always
     # Ketergantungan container ini dengan container lain sebelum container ini didefinisikan/dibuat
