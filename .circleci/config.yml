@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -8,7 +8,7 @@ jobs:
     - setup_remote_docker
     - run:
         name: lint-dockerfile
-        command: docker run --rm -i hadolint/hadolint < Dockerfile
+        command: docker run --rm --interactive hadolint/hadolint < Dockerfile
     - run:
         name: test-app
         command: go test -v -short --count=1 $(go list ./...)
