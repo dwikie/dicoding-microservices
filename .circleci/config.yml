@@ -10,6 +10,6 @@ jobs:
     - run:
         name: build-app-karsajobs
         command: |
-          docker build -t neithroid/karsajobs:latest . \
-          echo ${PASSWORD_DOCKER_HUB} | docker login -u neithroid --password-stdin \
+          docker build -t neithroid/karsajobs:latest .
+          echo ${PASSWORD_DOCKER_HUB} | docker login -u neithroid --password-stdin
           docker push neithroid/karsajobs:latest
