@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: /karsajobs
     docker:
       - image: cimg/go:1.20.2
     steps:
