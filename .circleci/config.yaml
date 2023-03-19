@@ -1,0 +1,25 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: lint-dockerfile
+        command: docker run --rm --interactive hadolint/hadolint < Dockerfile
+    - run:
+        name: build-app-karsajobs-ui
+        command: |
+          echo "Push image ke DockerHub..."
+          docker build -t neithroid/karsajobs-ui:latest .
+          docker login -u neithroid -p ${PASSWORD_DOCKER_HUB}
+          docker push neithroid/karsajobs-ui:latest
+          echo "Sukses push image ke repository Docker Hub"
+          echo
+          echo "Push image ke GitHub Container Registry..."
+          docker tag neithroid/karsajobs-ui:latest ghcr.io/dwikie/karsajobs-ui:latest
+          docker login ghcr.io -u dwikie -p ${PAT_GITHUB}
+          docker push ghcr.io/dwikie/karsajobs-ui:latest
+          echo "Sukses push image ke repository GitHub"
