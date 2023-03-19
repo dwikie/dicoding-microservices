@@ -1,17 +1,25 @@
 version: 2.1
 jobs:
+  # Membuat workflow bernama build
   build:
+    # Mendefinisikan image yang akan dipakai pada CI Pipeline
     docker:
       - image: cimg/go:1.15
+    # Langkah-langkah dari CI Pipeline
     steps:
+    # Checkout git branch
     - checkout
+    # Step untuk menyiapkan environment docker
     - setup_remote_docker
+    # Step bernama lint-dockerfile untuk lint Dockerfile
     - run:
         name: lint-dockerfile
         command: docker run --rm --interactive hadolint/hadolint < Dockerfile
+    # Step bernama test-app untuk melakukan test pada code
     - run:
         name: test-app
         command: go test -v -short --count=1 $(go list ./...)
+    # Step bernama build-app-karsajobs untuk build image dan push ke dockerhub dan github package
     - run:
         name: build-app-karsajobs
         command: |
