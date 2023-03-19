@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /karsajobs
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: cimg/go:1.20.2
     steps:
     - checkout
     - setup_remote_docker
