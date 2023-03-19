@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
- build:
+  build:
     docker:
       - image: cimg/go:1.15
     steps:
@@ -12,22 +12,17 @@ jobs:
     - run:
         name: test-app
         command: go test -v -short --count=1 $(go list ./...)
-    # - run:
-    #     name: build-app-karsajobs
-    #     command: |
-    #       echo "Push image ke DockerHub..."
-    #       docker build -t neithroid/karsajobs:latest .
-    #       docker login -u neithroid -p ${PASSWORD_DOCKER_HUB}
-    #       docker push neithroid/karsajobs:latest
-    #       echo "Sukses push image ke repository Docker Hub"
-    #       echo
-    #       echo "Push image ke GitHub Container Registry..."
-    #       docker tag neithroid/karsajobs:latest ghcr.io/dwikie/karsajobs:latest
-    #       docker login ghcr.io -u dwikie -p ${PAT_GITHUB}
-    #       docker push ghcr.io/dwikie/karsajobs:latest
-    #       echo "Sukses push image ke repository GitHub"
-workflows:
-  version: 2
-  test:
-    jobs:
-      - build
+    - run:
+        name: build-app-karsajobs
+        command: |
+          echo "Push image ke DockerHub..."
+          docker build -t neithroid/karsajobs:latest .
+          docker login -u neithroid -p ${PASSWORD_DOCKER_HUB}
+          docker push neithroid/karsajobs:latest
+          echo "Sukses push image ke repository Docker Hub"
+          echo
+          echo "Push image ke GitHub Container Registry..."
+          docker tag neithroid/karsajobs:latest ghcr.io/dwikie/karsajobs:latest
+          docker login ghcr.io -u dwikie -p ${PAT_GITHUB}
+          docker push ghcr.io/dwikie/karsajobs:latest
+          echo "Sukses push image ke repository GitHub"

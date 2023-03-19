@@ -10,7 +10,7 @@ RUN go mod download
 
 COPY . .
 RUN mkdir /build; \
-    go build -o /build/ ./...
+  go build -o /build/ ./...
 
 EXPOSE 8080
 CMD ["/build/web"]
