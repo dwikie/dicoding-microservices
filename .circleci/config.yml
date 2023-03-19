@@ -1,14 +1,19 @@
 version: 2.1
 jobs:
+  # Membuat workflow bernama build
   build:
     docker:
       - image: docker:17.05.0-ce-git
     steps:
+    # Step untuk checkout branch
     - checkout
+    # Step untuk menyiapkan environment docker
     - setup_remote_docker
+    # Step bernama lint-dockerfile untuk lint Dockerfile
     - run:
         name: lint-dockerfile
         command: docker run --rm --interactive hadolint/hadolint < Dockerfile
+    # Step bernama build-app-karsajobs-ui untuk build image dan push ke dockerhub dan github package
     - run:
         name: build-app-karsajobs-ui
         command: |
