@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    working_directory: /karsajobs
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+      name: build-app-karsajobs
+      command: |
+        docker build -t neithroid/karsajobs:latest .
+        echo ${PASSWORD_DOCKER_HUB} | docker login -u neithroid --password-stdin
+        docker push neithroid/karsajobs:latest
