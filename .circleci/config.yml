@@ -2,10 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/go:1.20.2
+      - image: cimg/go:1.15
     steps:
     - checkout
     - setup_remote_docker
+    - run:
+        name: lint-dockerfile
+        command: docker run --rm -i hadolint/hadolint < Dockerfile
     - run:
         name: test-app
         command: go test -v -short --count=1 $(go list ./...)
