@@ -26,3 +26,8 @@ jobs:
           docker login ghcr.io -u dwikie -p ${PAT_GITHUB}
           docker push ghcr.io/dwikie/karsajobs:latest
           echo "Sukses push image ke repository GitHub"
+workflows:
+  version: 2
+  test:
+    jobs:
+      - lint
